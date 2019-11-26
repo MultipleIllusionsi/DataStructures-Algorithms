@@ -13,16 +13,22 @@ const everyone = [
   "hank"
 ];
 const large = new Array(100).fill("nemo");
-
+// not efficient
 function findNemo2(fish) {
-  let t0 = performance.now();
   for (let i = 0; i < fish.length; i++) {
     if (fish[i] === "nemo") {
       console.log("Found NEMO!");
     }
   }
-  let t1 = performance.now();
-  console.log("Call to find Nemo took " + (t1 - t0) + " milliseconds.");
+}
+// efficient
+function findNemo2(fish) {
+  for (let i = 0; i < fish.length; i++) {
+    if (fish[i] === "nemo") {
+      console.log("Found NEMO!");
+      break;
+    }
+  }
 }
 
 findNemo2(everyone);
