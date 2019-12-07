@@ -14,8 +14,7 @@ const numJewelsInStones = function(J, S) {
 
   for (let j = 0; j < J.length; j++) {
     if (!jewels[J[j]]) {
-      const item = J[j];
-      jewels[item] = true;
+      jewels[J[j]] = true;
     }
   }
 
@@ -31,4 +30,18 @@ const numJewelsInStones = function(J, S) {
 // 2. Built-in JS functions
 const numJewelsInStones = function(J, S) {
   return S.split("").filter(c => J.includes(c)).length;
+};
+
+// 3. Set
+const numJewelsInStones = function(J, S) {
+  const jewels = new Set(J);
+  let count = 0;
+
+  for (let i = 0; i < S.length; i++) {
+    if (jewels.has(S.charAt(i))) {
+      count++;
+    }
+  }
+
+  return count;
 };

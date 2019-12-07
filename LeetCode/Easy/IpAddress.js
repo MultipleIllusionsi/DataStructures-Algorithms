@@ -20,3 +20,11 @@ const defangIPaddr = function(address) {
 };
 
 // 2. Regex (str.replace())
+const defangIPaddr = function(address) {
+  return address.replace(/\./g, "[.]");
+};
+
+// 3. Split + Join
+const defangIPaddr = function(address) {
+  return address.split(".").join("[.]");
+};

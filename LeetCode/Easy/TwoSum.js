@@ -17,12 +17,14 @@ const twoSum = function(nums, target) {
 };
 
 // 2. Hash Table w/ memoization
+// makes property (key is DIFFERENCE, value is index), then looking for this difference
 const twoSum = function(nums, target) {
-  const comp = {};
+  const map = {};
+
   for (let i = 0; i < nums.length; i++) {
-    if (comp[nums[i]] >= 0) {
-      return [comp[nums[i]], i];
+    if (map[nums[i]] >= 0) {
+      return [map[nums[i]], i];
     }
-    comp[target - nums[i]] = i;
+    map[target - nums[i]] = i;
   }
 };
