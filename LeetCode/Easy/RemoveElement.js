@@ -14,7 +14,37 @@
 //  with the first two elements of nums being 2.
 // It doesn't matter what you leave beyond the returned length.
 
-// 1. Push after array and shift then
+// 1. Two pointers
+const removeElement = function(nums, val) {
+  let i = 0;
+  for (let j = 0; j < nums.length; j++) {
+    if (nums[j] !== val) {
+      nums[i] = nums[j];
+      i++;
+    }
+  }
+  return i;
+};
+
+// 2. Twp pointers (if removed element is rare)
+const removeElement = function(nums, val) {
+  let i = 0;
+  let n = nums.length;
+
+  while (i < n) {
+    if (nums[i] === val) {
+      nums[i] = nums[n - 1];
+      // reduce array size by one
+      n--;
+    } else {
+      i++;
+    }
+  }
+
+  return n;
+};
+
+// 3. Push after array and shift then
 const removeElement = function(nums, val) {
   const length = nums.length;
   let count = 0;
@@ -34,7 +64,7 @@ const removeElement = function(nums, val) {
   return nums.length;
 };
 
-// 2. Push in the beggining of array and pop then
+// 4. Push in the beggining of array and pop then
 const removeElement = function(nums, val) {
   const length = nums.length;
   let count = 0;
